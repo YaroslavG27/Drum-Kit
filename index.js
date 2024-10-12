@@ -1,5 +1,7 @@
-document.querySelector("button").addEventListener("click", handleClick)
+let drumButtons = document.querySelectorAll(".drum")
 
-function handleClick(){
-    alert("I've got clicked")
-}
+drumButtons.forEach(function(drumButton){
+    drumButton.addEventListener("click", function(){
+        alert("I've got clicked")
+    })
+})
