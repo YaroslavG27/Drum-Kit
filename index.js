@@ -4,10 +4,12 @@ drumButtons.forEach(function(drumButton){
     drumButton.addEventListener("click", function(){
         let buttonInnerHtml = (this.innerHTML)
         makeSound(buttonInnerHtml)
+        addAnimation(buttonInnerHtml)
         
     })
     document.addEventListener("keydown", function(event){
         makeSound(event.key)
+        addAnimation(event.key)
     })
     function makeSound(key){
     switch (key){
@@ -41,4 +43,11 @@ drumButtons.forEach(function(drumButton){
             break
         default: console.log(key)
     }}
+    function addAnimation(currentKey){
+        let activeButton = document.querySelector("." + currentKey)
+        activeButton.classList.add("pressed")
+        setTimeout(function(){
+            activeButton.classList.remove("pressed")
+        }, 100)
+    }
 })
